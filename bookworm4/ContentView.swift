@@ -8,17 +8,60 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var varbooks: FetchedResults<Book>
+    
+    @State private var showingAddScreen = false
+    
+    
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            List{
+                ForEach(varbooks){ee in
+                    NavigationLink{
+                        assetsphotoVIEW(asstphotoviewvar: ee)
+                    }label: {
+                        HStack{
+                            newfrontvieworganization(intnewfrontview: ee.rating)
+                                .font(.largeTitle)
+                            VStack(alignment: .leading){
+                                Text(ee.title ?? "unknown title")
+                                    .font(.headline)
+                                Text(ee.author ?? "what author")
+                                    .foregroundColor(.secondary)
+                            }
+                            
+                        }
+                    }
+                }
+            }
+    
+            .navigationTitle("Saving Books:")
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button{
+                        showingAddScreen.toggle()
+                    }label: {
+                        Label("Add Book", systemImage: "plus")
+                    }
+                }
+            }
+            .sheet(isPresented: $showingAddScreen){
+                SwiftUIViewaddbookvariables()
+            }
+                
+            
+            
+            
+            
+            
         }
-        .padding()
+        
     }
 }
-
+   
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
