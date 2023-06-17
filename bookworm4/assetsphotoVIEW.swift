@@ -9,6 +9,14 @@ import SwiftUI
 
 struct assetsphotoVIEW: View {
     let asstphotoviewvar : Book
+    
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss
+    @State private var showingDeleteAlert = false
+
+    
+    
+    
     var body: some View {
         ScrollView{
             ZStack(alignment: .bottomTrailing){
@@ -43,9 +51,28 @@ struct assetsphotoVIEW: View {
         }
         .navigationTitle(asstphotoviewvar.title ?? "Unknon Book")
         .navigationBarTitleDisplayMode(.inline)
+        .alert("Delete the Saved Book ", isPresented: $showingDeleteAlert){
+            Button("delete",role: .destructive, action: deletebookfunconeachopenedbook)
+            Button("cancel", role: .cancel, action: {})
+        }message: {
+            Text(" are you sure you wanna delete it ")
+        }
+        .toolbar {
+            Button {
+                showingDeleteAlert = true
+            } label: {
+                Label("Delete this book", systemImage: "trash")
+            }
+        }
 
         
         
+    }
+    
+    func deletebookfunconeachopenedbook (){
+        moc.delete(asstphotoviewvar)
+        
+        dismiss()
     }
 }
 

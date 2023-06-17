@@ -64,14 +64,14 @@
 			isa = PBXGroup;
 			children = (
 				DD64FE922A3B5B110024AFC7 /* bookworm4App.swift */,
+				DD64FE942A3B5B110024AFC7 /* ContentView.swift */,
+				DD64FEA32A3B5B9D0024AFC7 /* DataController.swift */,
 				DD9E18EF2A3C6BE400818FB2 /* ratingstartVIEW.swift */,
 				DD9E18F12A3C854700818FB2 /* newfrontvieworganization.swift */,
-				DD64FE942A3B5B110024AFC7 /* ContentView.swift */,
-				DD64FEBA2A3C5E420024AFC7 /* booksaving.xcdatamodeld */,
 				DD64FEB82A3BCEB70024AFC7 /* SwiftUIViewADDBOOK.swift */,
-				DD64FEA32A3B5B9D0024AFC7 /* DataController.swift */,
-				DD64FE962A3B5B130024AFC7 /* Assets.xcassets */,
 				DD9E18F32A3CA1C300818FB2 /* assetsphotoVIEW.swift */,
+				DD64FEBA2A3C5E420024AFC7 /* booksaving.xcdatamodeld */,
+				DD64FE962A3B5B130024AFC7 /* Assets.xcassets */,
 				DD64FE982A3B5B130024AFC7 /* Preview Content */,
 			);
 			path = bookworm4;
